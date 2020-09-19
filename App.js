@@ -8,21 +8,19 @@ import {
   Text,
   StatusBar,
 } from 'react-native';
-
 import { NavigationContainer } from '@react-navigation/native';
-import DrawerNav from './src/components/DrawerNav';
+import DrawerNavigator from './src/navigation/DrawerNavigator';
+import MainNavigator from './src/navigation/MainNavigator';
 // import StackNav from './src/components/StackNav';
 const App= ()=> {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-   
       
-          <NavigationContainer>
-          <DrawerNav/>
+      
+          <MainNavigator/>
           
             
-          </NavigationContainer>
            
           
     </>

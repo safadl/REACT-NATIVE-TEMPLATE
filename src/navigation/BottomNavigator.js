@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
-import {createBottomTabNavigator} from '@react-navigation/bottom-tabs'
+import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import {Text, View} from 'react-native'
-import {Icon} from 'react-native-paper'
+import {Icon, Button,Provider} from 'react-native-paper'
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
-const Tab = createBottomTabNavigator()
+const Tab = createMaterialBottomTabNavigator();
 
 function Home(){
     return(
@@ -22,13 +22,27 @@ function Details(){
 }
 function BottomNavigator(){
 return(
-<Tab.Navigator>
-    <Tab.Screen tabBarIcon={()=>(<MaterialCommunityIcons name="home" color='tomato' size={10} />
-)}
- name="Home" component={Home} />
-    <Tab.Screen tabBarIcon={()=>(<MaterialCommunityIcons name="list" color='tomato' size={10} />)} name="Details" component={Details} />
+    <Provider>
+<Tab.Navigator shifting={true}>
+    <Tab.Screen name="Home" component={Home} options={{
+      tabBarColor:'blue',
+         
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="home" color='white'  size={26} />
+          ),
+        }} 
+        />
+    <Tab.Screen       
+ options={{
+          tabBarColor:'tomato',
+          
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="view-list" color='white'  size={26} />
+          ),
+        }}  name="Details" component={Details} />
 
 </Tab.Navigator>
+</Provider>
 )
 }
 
